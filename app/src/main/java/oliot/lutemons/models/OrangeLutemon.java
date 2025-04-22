@@ -1,4 +1,7 @@
 package oliot.lutemons.models;
 
-public abstract class OrangeLutemon extends Lutemon{
+public class OrangeLutemon extends Lutemon{
+    public OrangeLutemon(String name) {
+        super(name, "Orange", 100, 10, 10);
+    }
 }
