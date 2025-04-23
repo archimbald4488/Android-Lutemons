@@ -23,11 +23,21 @@
             android:orientation="vertical"
             android:layout_marginTop="16dp">
 
-            <RadioButton android:id="@+id/radioWhite" android:text="White" />
-            <RadioButton android:id="@+id/radioGreen" android:text="Green" />
-            <RadioButton android:id="@+id/radioPink" android:text="Pink" />
-            <RadioButton android:id="@+id/radioOrange" android:text="Orange" />
-            <RadioButton android:id="@+id/radioBlack" android:text="Black" />
+            <RadioButton
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:id="@+id/radioWhite" android:text="White" />
+            <RadioButton
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:id="@+id/radioGreen" android:text="Green" />
+            <RadioButton
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:id="@+id/radioPink" android:text="Pink" />
+            <RadioButton
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:id="@+id/radioOrange" android:text="Orange" />
+            <RadioButton
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:id="@+id/radioBlack" android:text="Black" />
         </RadioGroup>
 
         <Button

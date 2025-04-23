@@ -56,6 +56,12 @@ Text is in list format -->
                 android:text="HP: 20 | ATK: 4 | DEF: 3"
                 android:textSize="14sp"
                 android:textColor="#555555" />
+            <Button
+                android:id="@+id/btn_send_to_training"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send to Training"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
     </LinearLayout>
