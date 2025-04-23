@@ -32,8 +32,7 @@ Text is in list format -->
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginEnd="16dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/lutemon_image_desc" />
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="0dp"

@@ -28,4 +28,10 @@
         android:id="@+id/statsFragment"
         android:name="oliot.lutemons.fragments.StatsFragment"
         android:label="Stats"/>
+
+    <fragment
+        android:id="@+id/createLutemonFragment"
+        android:name="oliot.lutemons.fragments.CreateLutemonFragment"
+        android:label="Create"/>
+
 </navigation>

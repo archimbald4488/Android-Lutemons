@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Lutemon Name"
+            android:inputType="textPersonName" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <RadioButton android:id="@+id/radioWhite" android:text="White" />
+            <RadioButton android:id="@+id/radioGreen" android:text="Green" />
+            <RadioButton android:id="@+id/radioPink" android:text="Pink" />
+            <RadioButton android:id="@+id/radioOrange" android:text="Orange" />
+            <RadioButton android:id="@+id/radioBlack" android:text="Black" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnCreateLutemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Lutemon"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>
