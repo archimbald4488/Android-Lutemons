@@ -121,5 +121,4 @@ public class Lutemon implements Serializable {
         setAttack();
     }
 
-
 }

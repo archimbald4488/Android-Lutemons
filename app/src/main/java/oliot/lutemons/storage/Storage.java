@@ -21,14 +21,38 @@ public class Storage {
 
     public void addLutemon(Lutemon lutemon) { lutemonStorage.put(lutemon.getId(), lutemon);}
 
-    // move to Training can be next.
-    public void moveToTraining(int id) {}
+    public void moveToTraining(int id) {
+        Lutemon lutemon = lutemonStorage.get(id);
+        if (lutemon != null) {
+            training.put(id, lutemon);
+            home.remove(id);
+            battlefield.remove(id);
+        }
+    }
 
-    // I dont this is needed?
-    public void moveToBattlefield(int id) {}
-    public void moveToHome(int id) {}
+    public void moveToBattlefield(int id) {
+        Lutemon lutemon = lutemonStorage.get(id);
+        if (lutemon != null) {
+            battlefield.put(id, lutemon);
+            home.remove(id);
+            training.remove(id);
+        }
+    }
+    public void moveToHome(int id) {
+        Lutemon lutemon = lutemonStorage.get(id);
+        if (lutemon != null) {
+            home.put(id, lutemon);
+            training.remove(id);
+            battlefield.remove(id);
+        }
+    }
     public Lutemon getLutemon(int id) { return lutemonStorage.get(id);}
     public void removeLutemon(int id) {lutemonStorage.remove(id);}
+
+    // getters for convenience
+    public HashMap<Integer, Lutemon> getHomeLutemons() { return home; }
+    public HashMap<Integer, Lutemon> getTrainingLutemons() { return training; }
+    public HashMap<Integer, Lutemon> getBattlefieldLutemons() { return battlefield; }
 
     // This can be implemented when/if we decide to add the ability to save Lutemons
 
