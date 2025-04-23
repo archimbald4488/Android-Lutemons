@@ -8,6 +8,8 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import oliot.lutemons.R;
 import oliot.lutemons.models.Lutemon;
@@ -58,6 +60,8 @@ public class CreateLutemonFragment extends Fragment {
                 Toast.makeText(getActivity(), name + " created!", Toast.LENGTH_SHORT).show();
                 editName.setText("");
                 radioGroupColor.clearCheck();
+                NavController navController = Navigation.findNavController(view);
+                navController.popBackStack(); // This will pop the current fragment from the back stack
             }
         });
     }

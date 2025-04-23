@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
@@ -12,7 +13,11 @@
     <fragment
         android:id="@+id/lutemonListFragment"
         android:name="oliot.lutemons.fragments.LutemonListFragment"
-        android:label="Lutemons"/>
+        android:label="Lutemons">
+    <action
+        android:id="@+id/action_lutemonListFragment_to_createLutemonFragment"
+        app:destination="@id/createLutemonFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/trainingFragment"
@@ -32,6 +37,7 @@
     <fragment
         android:id="@+id/createLutemonFragment"
         android:name="oliot.lutemons.fragments.CreateLutemonFragment"
-        android:label="Create"/>
+        android:label="Create Lutemon"
+        tools:layout="@layout/fragment_create_lutemon" />
 
 </navigation>

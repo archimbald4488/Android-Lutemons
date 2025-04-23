@@ -9,19 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Lutemon Name"
-            android:inputType="textPersonName" />
-
         <RadioGroup
             android:id="@+id/radioGroupColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="50dp">
 
             <RadioButton
                 android:layout_height="wrap_content" android:layout_width="wrap_content"
@@ -40,11 +33,18 @@
                 android:id="@+id/radioBlack" android:text="Black" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/btnCreateLutemon"
+        <EditText
+            android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Lutemon"
-            android:layout_marginTop="24dp" />
+            android:hint="Enter Lutemon Name"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnCreateLutemon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create" />
+
     </LinearLayout>
 </ScrollView>

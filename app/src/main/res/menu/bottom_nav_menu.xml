@@ -20,8 +20,4 @@
         android:id="@+id/statsFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Stats"/>
-    <item
-        android:id="@+id/createLutemonFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Create" />
 </menu>

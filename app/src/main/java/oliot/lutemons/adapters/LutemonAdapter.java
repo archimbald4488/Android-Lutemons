@@ -23,10 +23,17 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
         this.lutemons = lutemons;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemCount() {
+        return lutemons.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameView, statsView;
         ImageView imageView;
         Button trainButton;
+        Button battleButton;
+        Button homeButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -34,6 +41,8 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
             statsView = itemView.findViewById(R.id.lutemon_stats);
             imageView = itemView.findViewById(R.id.lutemon_image);
             trainButton = itemView.findViewById(R.id.btn_send_to_training);
+            battleButton = itemView.findViewById(R.id.btn_send_to_battle);
+            homeButton = itemView.findViewById(R.id.btn_send_to_home);
         }
     }
 
@@ -51,16 +60,27 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
         holder.statsView.setText("HP: " + lutemon.getCurrentHealth());
         //holder.imageView.setImageResource(lutemon.getImageId()); uncomment after adding real images
 
+        // Set click listener for "Send to Training"
         holder.trainButton.setOnClickListener(v -> {
             Storage.getInstance().moveToTraining(lutemon.getId());
-            lutemons.remove(position);  // remove from current view if needed
-            notifyItemRemoved(position);
-            Toast.makeText(holder.itemView.getContext(), lutemon.getName() + " sent to training!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), lutemon.getName() + " sent to training!", Toast.LENGTH_SHORT).show();
+            notifyDataSetChanged();  // Refresh the RecyclerView to reflect the updated data
+        });
+
+        // Set click listener for "Send to Battle"
+        holder.battleButton.setOnClickListener(v -> {
+            Storage.getInstance().moveToBattlefield(lutemon.getId());
+            Toast.makeText(v.getContext(), lutemon.getName() + " sent to battle!", Toast.LENGTH_SHORT).show();
+            notifyDataSetChanged();  // Refresh the RecyclerView to reflect the updated data
+        });
+
+        holder.homeButton.setOnClickListener(v -> {
+            // Send Lutemon to home
+            Storage.getInstance().moveToHome(lutemon.getId());
+            notifyDataSetChanged();  // Update the list
+            Toast.makeText(holder.itemView.getContext(), lutemon.getName() + " sent to Home", Toast.LENGTH_SHORT).show();
         });
     }
-
-    @Override
-    public int getItemCount() {
-        return lutemons.size();
-    }
 }
+
+
