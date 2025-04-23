@@ -56,7 +56,8 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
-        holder.nameView.setText(lutemon.getName());
+        String lutemonName = lutemon.getName() + " (" + lutemon.getType() + ")";
+        holder.nameView.setText(lutemonName);
         holder.statsView.setText("HP: " + lutemon.getCurrentHealth());
         //holder.imageView.setImageResource(lutemon.getImageId()); uncomment after adding real images
 
