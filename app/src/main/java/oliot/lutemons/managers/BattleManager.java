@@ -13,6 +13,8 @@ public class BattleManager {
     // If the player wins the battle, he can earn experience points.
     int expAward = 0;
 
+    String eventOutcome, winner;
+
     public void startBattle(Lutemon playerLutemon, Lutemon enemyLutemon){
         updateStats(playerLutemon, enemyLutemon);
 
@@ -54,34 +56,37 @@ public class BattleManager {
     public int attack(Lutemon attacker, Lutemon defender){
         double randomFactor = Math.random() * RANDOM_DAMAGE_FACTOR;
         int damage = (int) (attacker.getAttack() + randomFactor - defender.getDefense());
-
+        String outcome;
         defender.setCurrentHealth(-damage); // Defender takes damage
 
-        System.out.println(attacker.getType() + "(" + attacker.getName() + ") attacks " +
+       String event = (attacker.getType() + "(" + attacker.getName() + ") attacks " +
                 defender.getType() + "(" + defender.getName() + ") for " + damage + " damage!");
 
         if (defender.getCurrentHealth() > 0) {
-            System.out.println(defender.getType() + "(" + defender.getName() + ") manages to escape death.");
+            outcome =  "(" + defender.getName() + ") manages to escape death.";
         } else {
-            System.out.println(defender.getType() + "(" + defender.getName() + ") gets killed.");
+            outcome =  "(" + defender.getName() + ") gets killed.";
         }
+
+        setAttackOutcome(event + outcome +"\n");
+
         return damage; // This will be used for the case where the player attacks.
     }
 
     public void checkBattleOutcome(Lutemon player, Lutemon enemy, int expAward){
         if (isBattleOver(player, enemy)) {
             if (player.getCurrentHealth() <= 0) {
-                System.out.println("The battle is over.");
-                System.out.println(enemy.getName() + " won the battle!");
+                winner = "The battle is over. "+enemy.getName() + " won the battle!";
+
                 player.setBattles();
             } else {
-                System.out.println("The battle is over.");
-                System.out.println(player.getName() + " won the battle!");
+                winner = "The battle is over."+player.getName() + " won the battle!";
                 player.battleExpAward(expAward);
                 player.setWins();
                 player.setBattles();
                 player.setCurrentHealth(player.getMaxHealth());
             }
+            enemy.setCurrentHealth(enemy.getMaxHealth()); // The enemies are hard coded in the EnemyStorage. Need to improve their health at end of game
         }
     }
 
@@ -94,8 +99,18 @@ public class BattleManager {
         attack(attacker, defender);
     }
 
+    public String getWinner(){return winner;}
+    public void setAttackOutcome(String event) {
+        eventOutcome = event;
+
+    }
+
+    public String getAttackOutcome(){
+        return eventOutcome;
+    }
 
     public boolean isBattleOver(Lutemon a, Lutemon b) {
         return a.getCurrentHealth() == 0 || b.getCurrentHealth() == 0;
+
     }
 }

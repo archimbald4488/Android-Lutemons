@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Storage {
     private static Storage instance;
 
-    private HashMap<Integer, Lutemon> lutemonStorage = new HashMap<>();
-    private HashMap<Integer, Lutemon> home = new HashMap<>();
-    private HashMap<Integer, Lutemon> training = new HashMap<>();
-    private HashMap<Integer, Lutemon> battlefield = new HashMap<>();
+    private final HashMap<Integer, Lutemon> lutemonStorage = new HashMap<>();
+    private final HashMap<Integer, Lutemon> home = new HashMap<>();
+    private final HashMap<Integer, Lutemon> training = new HashMap<>();
+    private final HashMap<Integer, Lutemon> battlefield = new HashMap<>();
 
     private Storage() {}
 
@@ -29,7 +29,6 @@ public class Storage {
             battlefield.remove(id);
         }
     }
-
     public void moveToBattlefield(int id) {
         Lutemon lutemon = lutemonStorage.get(id);
         if (lutemon != null) {
