@@ -1,6 +1,8 @@
 package oliot.lutemons.adapters;
 
-import android.os.Bundle;
+
+i
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import oliot.lutemons.R;
 import oliot.lutemons.fragments.BattleFragment;
-import oliot.lutemons.managers.BattleManager;
+
 import oliot.lutemons.models.Lutemon;
 import oliot.lutemons.storage.EnemyStorage;
 import oliot.lutemons.storage.Storage;
@@ -41,6 +43,9 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
         Button trainButton;
         Button battleButton;
         Button homeButton;
+        Button deteleLutemon;
+
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -50,9 +55,14 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
             trainButton = itemView.findViewById(R.id.btn_send_to_training);
             battleButton = itemView.findViewById(R.id.btn_send_to_battle);
             homeButton = itemView.findViewById(R.id.btn_send_to_home);
+            deteleLutemon = itemView.findViewById(R.id.deleteButton);
         }
     }
-
+    public void updateLutemons(List<Lutemon> newLutemons) {
+        this.lutemons.clear();
+        this.lutemons.addAll(newLutemons);
+        notifyDataSetChanged();
+    }
     @Override
     public LutemonAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -70,13 +80,16 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
                 " | ATK: " + lutemon.getAttack() +
                 " | DEF: " + lutemon.getDefense();
         holder.statsView.setText(statsText);
-        //holder.imageView.setImageResource(lutemon.getImageId()); uncomment after adding real images
+        holder.imageView.setImageResource(lutemon.getImageId());
 
-        // Set click listener for "Send to Training"
+
         holder.trainButton.setOnClickListener(v -> {
             Storage.getInstance().moveToTraining(lutemon.getId());
+
             Toast.makeText(v.getContext(), lutemon.getName() + " sent to training!", Toast.LENGTH_SHORT).show();
-            notifyDataSetChanged();  // Refresh the RecyclerView to reflect the updated data
+            lutemons.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, lutemons.size());
         });
 
         // Set click listener for "Send to Battle"
@@ -104,6 +117,16 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
             notifyDataSetChanged();  // Update the list
             Toast.makeText(holder.itemView.getContext(), lutemon.getName() + " sent to Home", Toast.LENGTH_SHORT).show();
         });
+
+        holder.deteleLutemon.setOnClickListener(v -> {
+            Storage.getInstance().removeLutemon(lutemon.getId());  // Remove from storage
+            Storage.getInstance().saveCurrentLutemons(v.getContext());  // Save the changes
+
+            lutemons.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, lutemons.size());
+        });
+
     }
 }
 

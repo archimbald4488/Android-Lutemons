@@ -1,0 +1,35 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/lutemon_image_in_training"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/lutemon_name_in_training"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/countdown_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Training: 10s"
+        android:textSize="16sp"
+        android:textColor="#FF5722"/>
+
+    <Button
+        android:id="@+id/train_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Train" />
+
+
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private LutemonAdapter adapter;
-
+    private Button saveButton, loadButton;
     public HomeFragment() {}
 
     @Override
@@ -32,6 +33,24 @@ public class HomeFragment extends Fragment {
         adapter = new LutemonAdapter(new ArrayList<>(Storage.getInstance().getHomeLutemons().values()));
         recyclerView.setAdapter(adapter);
 
+        saveButton = view.findViewById(R.id.saveLutemons);
+        saveButton.setOnClickListener(v -> {
+            Storage.getInstance().saveCurrentLutemons(getContext());
+        });
+
+        loadButton = view.findViewById(R.id.loadLutemons);
+        loadButton.setOnClickListener(v -> {
+            Storage.getInstance().loadSavedLutemons(getContext());
+            adapter.updateLutemons(new ArrayList<>(Storage.getInstance().getHomeLutemons().values()));
+        });
+
         return view;
+
+
+
+
     }
+
+
+
 }

@@ -14,13 +14,20 @@
         android:padding="16dp">
 
 
+        <ImageView
+            android:id="@+id/lutemon_image_stats"
+            android:layout_width="124dp"
+            android:layout_height="74dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop" />
+
         <TextView
             android:id="@+id/lutemon_name"
+            android:layout_width="246dp"
+            android:layout_height="35dp"
             android:text="Lutemon Name"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
 
 
         <TextView

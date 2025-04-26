@@ -3,6 +3,7 @@ package oliot.lutemons.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -48,14 +49,16 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
         // Values all set at 100... I mean don't know if it should be lower for Wins and Battles
         // I maybe could be lower because I doubt anyone will play more than a few games.
         // You can lower it.
-        holder.expProgressBar.setMax(100); // or dynamic max
+        holder.expProgressBar.setMax(1500); // or dynamic max
         holder.expProgressBar.setProgress(lutemon.getExperience());
 
-        holder.winsProgressBar.setMax(100);
+        holder.winsProgressBar.setMax(25);
         holder.winsProgressBar.setProgress(lutemon.getWins());
 
-        holder.battlesProgressBar.setMax(100);
+        holder.battlesProgressBar.setMax(25);
         holder.battlesProgressBar.setProgress(lutemon.getBattles());
+        holder.lutemonImage.setImageResource(lutemon.getImageId());
+
     }
 
 
@@ -67,7 +70,7 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameView, statsView;
         ProgressBar expProgressBar, winsProgressBar, battlesProgressBar;
-
+        ImageView lutemonImage;
         public ViewHolder(View itemView) {
             super(itemView);
             nameView = itemView.findViewById(R.id.lutemon_name);
@@ -75,6 +78,7 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.ViewHolder> 
             expProgressBar = itemView.findViewById(R.id.progress_exp);
             winsProgressBar = itemView.findViewById(R.id.progress_wins);
             battlesProgressBar = itemView.findViewById(R.id.progress_battles);
+            lutemonImage = itemView.findViewById(R.id.lutemon_image_stats);
 
         }
     }

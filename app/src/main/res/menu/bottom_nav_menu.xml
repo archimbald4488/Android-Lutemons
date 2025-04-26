@@ -2,22 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Home"/>
+        android:icon="@drawable/home"
+        android:title="Home" />
     <item
         android:id="@+id/lutemonListFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Lutemons"/>
+        android:icon="@drawable/pokeball"
+        android:title="Lutemons" />
     <item
         android:id="@+id/trainingFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Training"/>
-    <item
-        android:id="@+id/battleFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Battle"/>
+        android:icon="@drawable/treadmill"
+        android:title="Training" />
     <item
         android:id="@+id/statsFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Stats"/>
+        android:icon="@drawable/graph"
+        android:title="Stats" />
 </menu>

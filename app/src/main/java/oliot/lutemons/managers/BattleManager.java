@@ -1,6 +1,6 @@
 package oliot.lutemons.managers;
 
-import java.util.Scanner;
+
 
 import oliot.lutemons.models.Lutemon;
 
@@ -8,39 +8,14 @@ public class BattleManager {
     // Currently the battle manager works in the console.
     // The logic is simple, but works.
     private static final double RANDOM_DAMAGE_FACTOR = 3.0;
-    Scanner gameScanner = new Scanner(System.in);
+
 
     // If the player wins the battle, he can earn experience points.
     int expAward = 0;
 
     String eventOutcome, winner;
 
-    public void startBattle(Lutemon playerLutemon, Lutemon enemyLutemon){
-        updateStats(playerLutemon, enemyLutemon);
 
-        while(!isBattleOver(playerLutemon, enemyLutemon)){
-            String userInput;
-            System.out.println("(a) for attack, (r) for running away");
-            userInput = gameScanner.nextLine();
-
-            switch (userInput){
-                case "a":
-                    expAward += playerAttack(playerLutemon, enemyLutemon);
-                    updateStats(playerLutemon,enemyLutemon);
-                    break;
-                case "r":
-                    // playerEscape() <-- to be implemented
-                    break;
-            } enemyAttack(enemyLutemon, playerLutemon);
-                if (isBattleOver(playerLutemon, enemyLutemon)) {
-                break;
-            }
-        }
-
-        checkBattleOutcome(playerLutemon, enemyLutemon, expAward);
-
-
-    }
 
 
     public void updateStats(Lutemon a, Lutemon b) {
@@ -84,8 +59,10 @@ public class BattleManager {
                 player.battleExpAward(expAward);
                 player.setWins();
                 player.setBattles();
-                player.setCurrentHealth(player.getMaxHealth());
+
+
             }
+            player.setCurrentHealth(player.getMaxHealth());
             enemy.setCurrentHealth(enemy.getMaxHealth()); // The enemies are hard coded in the EnemyStorage. Need to improve their health at end of game
         }
     }
@@ -93,6 +70,8 @@ public class BattleManager {
     public int playerAttack(Lutemon attacker, Lutemon defender){
         return attack(attacker, defender);
     }
+
+
 
 
     public void enemyAttack(Lutemon attacker, Lutemon defender){

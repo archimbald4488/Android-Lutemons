@@ -30,7 +30,8 @@ public class LutemonListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_lutemon_list, container, false);
     }
 
@@ -39,29 +40,30 @@ public class LutemonListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d("LutemonListFragment", "Fragment loaded successfully");
 
-        // Initialize RecyclerView
+        //  RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewLutemons);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Initialize the list and adapter
+        //   list and adapter
         lutemonList = new ArrayList<>(Storage.getInstance().getHomeLutemons().values());
         lutemonAdapter = new LutemonAdapter(lutemonList);
         recyclerView.setAdapter(lutemonAdapter);
 
-        // Button for creating a new Lutemon
+        // Button for   new Lutemon
         btnCreateLutemon = view.findViewById(R.id.btnCreateLutemon);
         btnCreateLutemon.setOnClickListener(v -> {
             // Get the NavController and navigate to CreateLutemonFragment
             NavController navController = Navigation.findNavController(view);
             navController.navigate(R.id.action_lutemonListFragment_to_createLutemonFragment);
+
         });
     }
 
     // This method is called when the user creates a new Lutemon
     public void loadLutemons() {
-        lutemonList.clear();  // Clear the current list
-        lutemonList.addAll(Storage.getInstance().getHomeLutemons().values());  // Reload Lutemons from Storage
-        lutemonAdapter.notifyDataSetChanged();  // Notify the adapter to refresh the list
+        lutemonList.clear();
+        lutemonList.addAll(Storage.getInstance().getHomeLutemons().values());
+        lutemonAdapter.notifyDataSetChanged();
     }
 
 

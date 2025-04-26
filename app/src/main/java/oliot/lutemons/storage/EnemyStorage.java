@@ -8,6 +8,7 @@ import oliot.lutemons.models.GreenLutemon;
 import oliot.lutemons.models.Lutemon;
 import oliot.lutemons.models.OrangeLutemon;
 import oliot.lutemons.models.PinkLutemon;
+import oliot.lutemons.models.WhiteLutemon;
 
 public class EnemyStorage {
 
@@ -20,6 +21,8 @@ public class EnemyStorage {
         enemyLutemons.add(new BlackLutemon("Goblin"));
         enemyLutemons.add(new GreenLutemon("Troll"));
         enemyLutemons.add(new OrangeLutemon("Skeleton"));
+        enemyLutemons.add(new PinkLutemon("Brian Kottarainen"));
+        enemyLutemons.add(new WhiteLutemon("Monster Energy Drink"));
     }
 
     public static EnemyStorage getInstance(){
