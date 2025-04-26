@@ -1,5 +1,6 @@
 package oliot.lutemons.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 import oliot.lutemons.R;
+import oliot.lutemons.fragments.BattleFragment;
+import oliot.lutemons.managers.BattleManager;
 import oliot.lutemons.models.Lutemon;
+import oliot.lutemons.storage.EnemyStorage;
 import oliot.lutemons.storage.Storage;
 
 public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHolder> {
-    private ArrayList<Lutemon> lutemons;
+    private final ArrayList<Lutemon> lutemons;
 
     public LutemonAdapter(ArrayList<Lutemon> lutemons) {
         this.lutemons = lutemons;
@@ -76,8 +83,20 @@ public class LutemonAdapter extends RecyclerView.Adapter<LutemonAdapter.ViewHold
         holder.battleButton.setOnClickListener(v -> {
             Storage.getInstance().moveToBattlefield(lutemon.getId());
             Toast.makeText(v.getContext(), lutemon.getName() + " sent to battle!", Toast.LENGTH_SHORT).show();
-            notifyDataSetChanged();  // Refresh the RecyclerView to reflect the updated data
+
+            // Lutemons  as static references
+            BattleFragment.playerLutemon = lutemon;
+            BattleFragment.enemyLutemon = EnemyStorage.getInstance().getRandomEnemy();
+
+            // goto BattleFragment
+            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.nav_host_fragment, new BattleFragment()) // ID from activity_main.xml
+                    .addToBackStack(null)
+                    .commit();
         });
+
 
         holder.homeButton.setOnClickListener(v -> {
             // Send Lutemon to home

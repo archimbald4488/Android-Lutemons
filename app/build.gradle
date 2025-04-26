@@ -34,7 +34,10 @@ dependencies {
     implementation libs.material
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+    implementation libs.navigation.runtime
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    // Added this for the card view in the stats
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
