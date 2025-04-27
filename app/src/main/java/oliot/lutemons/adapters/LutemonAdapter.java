@@ -1,7 +1,7 @@
 package oliot.lutemons.adapters;
 
 
-i
+
 
 import android.view.LayoutInflater;
 import android.view.View;
