@@ -11,7 +11,7 @@ public class BattleManager {
 
 
     // If the player wins the battle, he can earn experience points.
-    int expAward = 0;
+
 
     String eventOutcome, winner;
 
