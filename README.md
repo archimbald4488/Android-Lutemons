@@ -7,7 +7,7 @@ In this app, you can create, train, and battle creatures called *Lutemons*.
 
 - Create new Lutemons with custom names and colors
 - Send Lutemons to training or into battle
-- Bring Lutemons back home
+- Save Lutemons
 - Track each Lutemon's health, attack, defense, and experience
 - Simple and clean RecyclerView UI with buttons for actions
 - Local storage of Lutemon data
