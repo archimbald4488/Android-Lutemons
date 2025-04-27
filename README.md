@@ -14,9 +14,6 @@ In this app, you can create, train, and battle creatures called *Lutemons*.
 
 ## How to Run
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/lutemon-app.git
-    ```
+1. Clone the repository
 2. Open the project in Android Studio.
 3. Build and run on an emulator or device.
