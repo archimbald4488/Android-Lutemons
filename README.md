@@ -17,3 +17,5 @@ In this app, you can create, train, and battle creatures called *Lutemons*.
 1. Clone the repository
 2. Open the project in Android Studio.
 3. Build and run on an emulator or device.
+
+## Työn dokumentaatio löytyy PDF tiedostosta 'Loppuraportti_AriH_MohamedS'
