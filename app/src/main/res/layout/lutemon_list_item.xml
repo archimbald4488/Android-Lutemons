@@ -9,25 +9,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="12dp">
 
         <!-- Lutemon Image -->
+
+        <!-- Text area: Name, Stats, Experience -->
+
         <ImageView
             android:id="@+id/lutemon_image"
-            android:layout_width="66dp"
-            android:layout_height="72dp"
+            android:layout_width="106dp"
+            android:layout_height="94dp"
             android:layout_marginEnd="16dp"
             android:scaleType="centerCrop" />
 
-        <!-- Text area: Name, Stats, Experience -->
         <LinearLayout
-            android:layout_width="25dp"
-            android:layout_height="68dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lutemon_name"

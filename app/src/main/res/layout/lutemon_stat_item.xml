@@ -8,23 +8,23 @@
     android:layout_margin="8dp">
     <!-- Android has progressBarStyle thingy. Who knew!? -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="16dp">
 
 
         <ImageView
             android:id="@+id/lutemon_image_stats"
             android:layout_width="124dp"
-            android:layout_height="74dp"
+            android:layout_height="106dp"
             android:layout_marginEnd="16dp"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/lutemon_name"
             android:layout_width="246dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:text="Lutemon Name"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -32,55 +32,58 @@
 
         <TextView
             android:id="@+id/lutemon_stats"
-            android:text="EXP: 0 | Wins: 0 | Battles: 0"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="EXP: 0 | Wins: 0 | Battles: 0"
+            android:textSize="14sp" />
 
         <!-- Experience -->
         <TextView
-            android:text="Experience"
-            android:textSize="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Experience"
+            android:textSize="12sp" />
+
         <ProgressBar
             android:id="@+id/progress_exp"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="50"
             android:max="100"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:progressTint="@android:color/holo_blue_light"/>
+            android:progress="50"
+            android:progressTint="@android:color/holo_blue_light" />
 
 
         <TextView
-            android:text="Wins"
-            android:textSize="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Wins"
+            android:textSize="12sp" />
+
         <ProgressBar
             android:id="@+id/progress_wins"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="3"
             android:max="10"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:progressTint="@android:color/holo_green_light"/>
+            android:progress="3"
+            android:progressTint="@android:color/holo_green_light" />
 
 
         <TextView
-            android:text="Battles"
-            android:textSize="12sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Battles"
+            android:textSize="12sp" />
+
         <ProgressBar
             android:id="@+id/progress_battles"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="5"
             android:max="20"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:progressTint="@android:color/holo_orange_light"/>
+            android:progress="5"
+            android:progressTint="@android:color/holo_orange_light" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
